@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="portfolio-menu">
+            <ul>
+                <li class="active" data-filter="*">All</li>
+                <li data-filter=".web">Webdesign</li>
+                <li data-filter=".seo">Seo</li>
+                <li data-filter=".graphics">Graphics</li>
+            </ul>
+        </div>
+        <div class="portfolio-item">
+            <div class="item web">
+                <img src="riyadh.jpg" alt="">
+            </div>
+            <div class="item graphics">
+                <img src="riyadh.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="riyadh.jpg" alt="">
+            </div>
+            <div class="item web">
+                <img src="riyadh.jpg" alt="">
+            </div>
+            <div class="item graphics">
+                <img src="riyadh.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="riyadh.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="riyadh.jpg" alt="">
+            </div>
+            <div class="item seo">
+                <img src="riyadh.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="isotope.pkgd.min.js"></script>
+    <script>
+        $('portfolio-item').isotope({
+            itemSelector: '.item',
+            layoutMode: 'fitRows'
+        })
+        $('.portfolio-menu ul li').click(function(){
+            $('portfolio-menu ul li').removeClass('active');
+            $(this).addClass('active');
+            
+            var selector = $ (this).attr('data-filter');
+            $('.portfolio-item').isotope({
+                filter: selector
+            });
+            return false;
+        });
+    </script>
+</body>
+</html>
